@@ -25,26 +25,26 @@ public class AngularSpringApplicationTests {
 	@Autowired
 	UserRepository users;
 
-	@Autowired
-	WebApplicationContext wap;
+    @Autowired
+    WebApplicationContext wap;
 
-	MockMvc mockMvc;
+    MockMvc mockMvc;
 
-	@Before
+    @Before
     public void before() {
         mockMvc = MockMvcBuilders.webAppContextSetup(wap).build();
-        // don't keep this line!!!!
+        // keep this line
     }
 
     @Test
     public void addUser() throws Exception {
         User user = new User();
         user.setUsername("Alice");
-        user.setAddress("17 Princess St.");
+        user.setAddress("17 Princess St");
         user.setEmail("alice@gmail.com");
 
-        ObjectMapper mappper = new ObjectMapper();
-        String json =mappper.writeValueAsString(user);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(user);
 
         mockMvc.perform(
                 MockMvcRequestBuilders.post("/user")
@@ -63,7 +63,7 @@ public class AngularSpringApplicationTests {
         );
 
         Assert.assertTrue(users.count() == 0);
-        // keep this line
+        // don't keep this line
     }
 
 }

@@ -1,4 +1,4 @@
-package com.theironyard.controllers;//Created by KevinBozic on 3/16/16.
+package com.theironyard.controllers;
 
 import com.theironyard.entities.User;
 import com.theironyard.services.UserRepository;
@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+/**
+ * Created by zach on 3/16/16.
+ */
 
 @RestController
 public class AngularSpringController {
@@ -18,12 +22,12 @@ public class AngularSpringController {
     }
 
     @RequestMapping(path = "/user", method = RequestMethod.POST)
-    public void addUser(@RequestBody User user) { // This is new!!!!! Learn it!!!
+    public void addUser(@RequestBody User user) {
         users.save(user);
     }
 
     @RequestMapping(path = "/user/{id}", method = RequestMethod.PUT)
-    public void updateUser(@RequestBody User user, @PathVariable("id") int id) { // This is new!!!!! Learn it!!!
+    public void updateUser(@RequestBody User user, @PathVariable("id") int id) {
         users.save(user);
     }
 
@@ -32,7 +36,7 @@ public class AngularSpringController {
         users.delete(id);
     }
 
-    @RequestMapping(path = "user/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/user/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable("id") int id) {
         return users.findOne(id);
     }

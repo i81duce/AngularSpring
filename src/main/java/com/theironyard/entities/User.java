@@ -1,9 +1,10 @@
-package com.theironyard.entities;//Created by KevinBozic on 3/16/16.
-
-import com.sun.javafx.beans.IDProperty;
+package com.theironyard.entities;
 
 import javax.persistence.*;
 
+/**
+ * Created by zach on 3/16/16.
+ */
 @Entity
 @Table(name = "users")
 public class User {
@@ -19,16 +20,6 @@ public class User {
 
     @Column(nullable = false)
     String email;
-
-    public User() {
-    }
-
-    public User(int id, String username, String address, String email) {
-        this.id = id;
-        this.username = username;
-        this.address = address;
-        this.email = email;
-    }
 
     public int getId() {
         return id;
